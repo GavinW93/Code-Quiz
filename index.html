@@ -20,26 +20,28 @@
                 <div class= "info">
 
                     <h1 id= "results"></h1>
+                    <button id= "vhighscore" onclick="DisData()"class="btn btn-info">Veiw score</button>
                     
+                    <p id="showscore"></p>
                     <ol>
                     </ol>
 
                 <div class= "main">
                 <p id= "words"></p>
 
-                <button id="start">Start</button>
+                <button id="start"class="btn btn-primary">Start</button>
 
 
                         <h4 id="time"></h4><span id="countdown"></span>
                         <h4 id= "highscoreTXT"></h1><span id="score" name="scoring" value= "">0</span>
                         <p id= "questions"></p>
-                        <button id="ans1"></button>
-                        <button id="ans2"></button>
-                        <button id="ans3"></button>
-                        <button id="ans4"></button>
+                        <button id="ans1"class="btn btn-primary"></button>
+                        <button id="ans2"class="btn btn-primary"></button>
+                        <button id="ans3"class="btn btn-primary"></button>
+                        <button id="ans4"class="btn btn-primary"></button>
                         <input type='text' name="init" id="initials"/> 
-                        <button id="saveBtn" onclick="saveData()" type="button">Save score</button>
-
+                        <button id="saveBtn" onclick="saveData()" type="button"class="btn btn-primary">Save score</button>
+                        <button id= "restartgame" onclick="resetGame()"class="btn btn-danger">restart game</button>
                         
                     </div>
                     
@@ -48,6 +50,6 @@
 
 
 
-              <script src="assets/JavaScript/wordgame.js"></script>
+              <script src="assets/JavaScript/quizgame.js"></script>
 </body>
 </html>

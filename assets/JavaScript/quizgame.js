@@ -6,7 +6,23 @@ document.getElementById("ans3").style.visibility = "hidden";
 document.getElementById("ans4").style.visibility = "hidden";
 document.getElementById("initials").style.visibility = "hidden";
 document.getElementById("saveBtn").style.visibility = "hidden";
+document.getElementById("start").style.visibility = "visible";
+document.getElementById("restartgame").style.visibility = "hidden";
+var init = document.getElementById('initials').value;
+
 //document.getElementsByClassName("saveBtn").style.visibility = "hidden";
+function DisData(){
+  //DHS= document.getElementById('score').value = localStorage.getItem('scoring');
+
+  var DHS= (localStorage.getItem("PInitials", init))+":"+(localStorage.getItem("Hscore", HighScore))
+  console.log(DHS)
+  document.getElementById('showscore').innerHTML = DHS;
+  //localStorage.getItem("PInitials", init);
+  //var t = document.createTextNode((init)+":"+(HighScore));
+  //document.getElementById('score').value = localStorage.getItem('scoring');
+
+}
+
 
 var HighScore= 0;
 document.getElementById('time').innerHTML = "press the start button";
@@ -29,23 +45,27 @@ $("#start").on("click", function() {
       document.getElementById("ans2").style.visibility = "visible";
       document.getElementById("ans3").style.visibility = "visible";
       document.getElementById("ans4").style.visibility = "visible";
-
+      document.getElementById("initials").style.visibility = "hidden"; 
+      document.getElementById("saveBtn").style.visibility = "hidden";
+      document.getElementById("start").style.visibility = "hidden";
+startingGame();
       var seconds = 15, $seconds = document.querySelector('#countdown');
 
       (function countdown() {
           $seconds.textContent = seconds + ' second' + (seconds == 1 ?  '' :  's')
           if(seconds --> 0) setTimeout(countdown, 1000)
+          //if(seconds == null){return}
       })();
 
     }
     function startingGame(){
-      var stb = document.getElementById("start");
+      /*var stb = document.getElementById("start");
       if (stb.style.display === "none") {
         stb.style.display = "block";
       } else {
         stb.style.display = "none";
-      }
-      alert("start game")
+      }*/
+      //alert("start game")
       
                 document.getElementById('score').innerHTML = HighScore; 
                 document.getElementById('results').innerHTML = "";
@@ -59,14 +79,15 @@ $("#start").on("click", function() {
                             //alert("wrong");
                             document.getElementById('results').innerHTML = "wrong ";
                             question2();
-                            //seconds= seconds - 15;
-                            //startingTime();
+                            //seconds = null;
+                            //seconds= 0;
                           })
                           $("#ans2").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question2();
-                            //seconds= seconds - 15;
-                            //startingTime();
+                            //seconds = null
+                            
+                            //seconds= 0;
                           })
                           $("#ans3").on("click", function() {
                                 
@@ -74,13 +95,16 @@ $("#start").on("click", function() {
                             question2();
                             HighScore = HighScore + 120;
                             document.getElementById('score').innerHTML = HighScore; 
-                            //startingTime();      
+                            //seconds = null
+                            //startingTime(); 
+                            //seconds= 0;    
                           })
                           $("#ans4").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
+                            //seconds = null
                             question2();
                             //startingTime();
-                            //seconds= seconds - 15;
+                            //seconds= 0;
                           })
 
 
@@ -89,6 +113,7 @@ $("#start").on("click", function() {
     function question2(){
     //  alert("start game")
     //seconds = 15, $seconds = document.querySelector('#countdown');
+    //startingTime();
                 document.getElementById('score').innerHTML = HighScore; 
                 document.getElementById('questions').innerHTML = "The condition in an if / else statement is enclosed within ____.";
                 document.getElementById('ans1').innerHTML = "quotes ";
@@ -96,15 +121,24 @@ $("#start").on("click", function() {
                 document.getElementById('ans3').innerHTML = "parentheses ";
                 document.getElementById('ans4').innerHTML = "square brackets ";
 
+                var seconds = 15, $seconds = document.querySelector('#countdown');
+
+      (function countdown() {
+          $seconds.textContent = seconds + ' second' + (seconds == 1 ?  '' :  's')
+          if(seconds --> 0) setTimeout(countdown, 1000)
+      })();
+
                           $("#ans1").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question3();
                             //startingTime();
                           // seconds= seconds - 15;
+                            //seconds = null
                           })
                           $("#ans2").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question3();
+                           // seconds = null
                             //startingTime();
                           // seconds= seconds - 15;
                           })
@@ -112,6 +146,7 @@ $("#start").on("click", function() {
                                 
                             document.getElementById('results').innerHTML = "correct ";
                             question3();
+                            //seconds = null
                             //startingTime();
                             HighScore = HighScore + 120;
                             document.getElementById('score').innerHTML = HighScore;       
@@ -119,6 +154,7 @@ $("#start").on("click", function() {
                           $("#ans4").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question3();
+                            //seconds = null
                             //startingTime();
                             //seconds= seconds - 15;
                           })
@@ -138,12 +174,14 @@ $("#start").on("click", function() {
                           $("#ans1").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question4();
+                            //seconds = null
                             //startingTime();
                           // seconds= seconds - 15;
                           })
                           $("#ans2").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question4();
+                            //seconds = null
                             //startingTime();
                             //seconds= seconds - 15;
                           })
@@ -151,6 +189,7 @@ $("#start").on("click", function() {
                           $("#ans3").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question4();
+                            //seconds = null
                             //startingTime();
                             //seconds= seconds - 15;
                           })
@@ -158,6 +197,7 @@ $("#start").on("click", function() {
                                 
                             document.getElementById('results').innerHTML = "correct ";
                             question4();
+                            //seconds = null
                             //startingTime();
                             HighScore = HighScore + 120;
                                   
@@ -180,12 +220,14 @@ $("#start").on("click", function() {
                           $("#ans1").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question5();
+                            //seconds = null
                             //startingTime();
                           // seconds= seconds - 15;
                           })
                           $("#ans2").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question5();
+                            //seconds = null
                             //startingTime();
                             //seconds= seconds - 15;
                           })
@@ -193,6 +235,7 @@ $("#start").on("click", function() {
                           $("#ans4").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             question5();
+                            //seconds = null
                             //startingTime();
                             //seconds= seconds - 15;
                           })
@@ -200,6 +243,7 @@ $("#start").on("click", function() {
                                 
                             document.getElementById('results').innerHTML = "correct ";
                             question5();
+                            //seconds = null
                             //startingTime();
                             HighScore = HighScore + 120;
                                   
@@ -222,18 +266,21 @@ $("#start").on("click", function() {
                           $("#ans1").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             finalresults();
+                           // seconds = null
                             //startingTime();
                           // seconds= seconds - 15;
                           })
                           $("#ans2").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             finalresults();
+                            //seconds = null
                             //seconds= seconds - 15;
                           })
                           
                           $("#ans3").on("click", function() {
                             document.getElementById('results').innerHTML = "wrong ";
                             finalresults();
+                            //seconds = null
                            // startingTime();
                             //seconds= seconds - 15;
                           })
@@ -241,6 +288,7 @@ $("#start").on("click", function() {
                                 
                             document.getElementById('results').innerHTML = "correct ";
                             finalresults();
+                            //seconds = null
                             //startingTime();
                             HighScore = HighScore + 120;
                             document.getElementById('score').innerHTML = HighScore;       
@@ -262,7 +310,7 @@ $("#start").on("click", function() {
           document.getElementById("initials").style.visibility = "visible"; 
           document.getElementById("saveBtn").style.visibility = "visible";
           document.getElementById('questions').innerHTML = "please enter your initials for the high score!";
-
+          document.getElementById("restartgame").style.visibility = "visible";
 
    /*  var x = localStorage.getItem('init'); 
     var input = document.getElementById('initials').value;
@@ -283,7 +331,7 @@ $("#start").on("click", function() {
 function saveData()
 {
   //save the intials
-  var init = document.getElementById('initials').value;
+  var init = document.getElementById('initials').value; 
 localStorage.setItem("PInitials", init);
 // save the score count
 //var scor= HighScore
@@ -296,4 +344,7 @@ localStorage.setItem("Hscore", HighScore);
 
   //document.getElementById('initials').value = localStorage.getItem('PInitials');
 
+}
+function resetGame(){
+  location.reload();
 }
